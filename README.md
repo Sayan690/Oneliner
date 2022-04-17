@@ -15,6 +15,10 @@ Here '-e' argument mentions an base64 encoding.
 python3 oneliner.py -l
 It lists the types of payloads and encoders availiable currently.
 
+You will require some requirements for the script.
+Just give executive permissions and execute the requirements script.
+And it will download and fulfill all the requirements.
+
 Hope it will help you.
 If anyone has any idea about improving it, please contact me at instagram.
 My insta handle - sayanray385.

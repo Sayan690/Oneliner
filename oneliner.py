@@ -90,10 +90,10 @@ def rev_shell():
 			print(cp)
 		def base64(cd):
 			cp = cd.encode()
-			print(b64encode(c))
+			print(b64encode(cp).decode())
 		def base32(cd):
 			cp = cd.encode()
-			print(b32encode(cp))
+			print(b32encode(cp).decode())
 		def rot_13(cd):
 			print(codecs.encode(cd, 'rot_13'))
 		def rot_47(cd):

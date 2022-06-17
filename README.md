@@ -1,31 +1,37 @@
-This is a StandAlone Oneliner Payload Creator written in python3. Anyone can use it by giving some important commands. For example:
 
-python3 oneliner.py -ip 127.0.0.1 -p 4444 -t bash
+# ONELINER
+Oneliner is a Stand-Alone reverse shell payload creator.
+## Why **Oneliner**?
 
-Here the ip is mandatory but the port is optional as it's default value is 4444. '-t' argument is mandatory.
+In real-world Pentesting Envionment, isn't it quite hard to go to some online web sites like [pentestmonkey](https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet) or [revshells](https://www.revshells.com/) and then set the required options and then copy, paste and do all those stuff?
 
-python3 oneliner.py -ip eth0 -t bash -I
+Here **Oneliner** helps, **Oneliner** creates a reverse shell payload with the desired options much faster than all the above stuff.
 
-Here the interface name will be accepted but you have to specify '-I' argument.
+It does only require some arguments and your payload is ready, saving much time.
 
-python3 oneliner.py -ip eth0 -t bash -I -e url
 
-Here '-e' argument mentions an url encodiing.
+## Required Arguments
 
-python3 oneliner.py -ip eth0 -t bash -I -e base64 <or b_64 or b64 or base_64>
+- LHOST
+- Shell Type
 
-Here '-e' argument mentions an base64 encoding.
+## Optional Arguments
 
-python3 oneliner.py -l
+- PORT ```Default value - 4444```
+- Encode ``` Default value - None```
 
-It lists the types of payloads and encoders availiable currently.
 
-You will require some requirements for the script.
-Just give executive permissions and execute the requirements script.
-And it will download and fulfill all the requirements.
+## Examples -
+```bash
+    python3 oneliner.py 10.10.15.171 -s bash
+```
+```powershell
+    python3 oneliner.py 10.10.15.171 -s pwsh -p 1234
+```
+```netcat_url_encoded
+    python3 oneliner.py 10.10.15.171 -s nc -e url
+```
 
-Hope it will help you.
-
-If anyone has any idea about improving it, please contact me at instagram.
-
-My insta handle - sayanray385.
+## Contributing:
+    Any body can voluntarily contribute to this project if he/she has a better idea.
+    If so, please contact me on my [Insta Handle](https://www.instagram.com/sayanray385/).

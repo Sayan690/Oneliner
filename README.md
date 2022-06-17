@@ -3,7 +3,7 @@
 Oneliner is a Stand-Alone reverse shell payload creator.
 ## Why **Oneliner**?
 
-In real-world Pentesting Envionment, isn't it quite hard to go to some online web sites like [pentestmonkey](https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet) or [revshells](https://www.revshells.com/) and then set the required options and then copy, paste and do all those stuff?
+In real-world Pentesting Envionment, to get a reverse shell payload, isn't it quite hard to go to some online web sites like [pentestmonkey](https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet) or [revshells](https://www.revshells.com/) and then set the required options and then copy, paste and do all those stuff?
 
 Here **Oneliner** helps, **Oneliner** creates a reverse shell payload with the desired options much faster than all the above stuff.
 

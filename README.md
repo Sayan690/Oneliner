@@ -25,7 +25,7 @@ It does only require some arguments and your payload is ready, saving much time.
 ```bash
     python3 oneliner.py 10.10.15.171 -s bash
 ```
-```pwsh
+```bash
     python3 oneliner.py 10.10.15.171 -s pwsh -p 1234
 ```
 ```netcat_url_encoded

